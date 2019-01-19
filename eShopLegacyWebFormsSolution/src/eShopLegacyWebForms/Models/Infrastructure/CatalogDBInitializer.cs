@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
@@ -29,15 +30,24 @@ namespace eShopLegacyWebForms.Models.Infrastructure
             useCustomizationData = bool.Parse(ConfigurationManager.AppSettings["UseCustomizationData"]);
         }
 
+        public void RunInitializer(CatalogDBContext context) => Seed(context);
+
         protected override void Seed(CatalogDBContext context)
         {
+            Trace.TraceInformation("ExecuteScript(CatalogItemHiLoSequenceScript)");
             ExecuteScript(context, CatalogItemHiLoSequenceScript);
+            Trace.TraceInformation("ExecuteScript(CatalogBrandHiLoSequenceScript)");
             ExecuteScript(context, CatalogBrandHiLoSequenceScript);
+            Trace.TraceInformation("ExecuteScript(CatalogTypeHiLoSequenceScript)");
             ExecuteScript(context, CatalogTypeHiLoSequenceScript);
 
+            Trace.TraceInformation("AddCatalogTypes");
             AddCatalogTypes(context);
+            Trace.TraceInformation("AddCatalogBrands");
             AddCatalogBrands(context);
+            Trace.TraceInformation("AddCatalogItems");
             AddCatalogItems(context);
+            Trace.TraceInformation("AddCatalogItemPictures");
             AddCatalogItemPictures();
         }
 

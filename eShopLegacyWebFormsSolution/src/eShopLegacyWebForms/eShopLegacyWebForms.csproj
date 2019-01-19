@@ -171,6 +171,7 @@
     <Content Include="fonts\Montserrat-Regular.ttf" />
     <Content Include="fonts\Montserrat-Regular.woff" />
     <Content Include="fonts\Montserrat-Regular.woff2" />
+    <None Include="Properties\PublishProfiles\eshopmodernizing - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\brand.png" />
     <Content Include="images\brand_dark.png" />

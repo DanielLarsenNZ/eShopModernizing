@@ -5,6 +5,7 @@ using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
 using eShopLegacyWebForms.ViewModel;
+using eShopLegacyWebForms.Models.Infrastructure;
 
 namespace eShopLegacyWebForms.Services
 {
@@ -71,6 +72,12 @@ namespace eShopLegacyWebForms.Services
         public void Dispose()
         {
             db.Dispose();
+        }
+
+        public void Seed()
+        {
+            var initializer = new CatalogDBInitializer(new CatalogItemHiLoGenerator());
+            initializer.RunInitializer(db);
         }
     }
 }

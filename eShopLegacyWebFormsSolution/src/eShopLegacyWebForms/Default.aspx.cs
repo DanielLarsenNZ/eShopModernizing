@@ -23,6 +23,8 @@ namespace eShopLegacyWebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Diagnostics.Trace.TraceInformation("Page_Load");
+            Seed();
             if (PaginationParamsAreSet())
             {
                 var size = Convert.ToInt32(Page.RouteData.Values["size"]);
@@ -38,6 +40,14 @@ namespace eShopLegacyWebForms
             productList.DataBind();
             ConfigurePagination();
 
+        }
+
+        private void Seed()
+        {
+            if (Page.ClientQueryString.Contains("seed=true"))
+            {
+                CatalogService.Seed();
+            }
         }
 
         private bool PaginationParamsAreSet()

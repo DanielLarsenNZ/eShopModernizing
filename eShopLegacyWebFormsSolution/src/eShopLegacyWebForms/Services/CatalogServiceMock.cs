@@ -78,7 +78,11 @@ namespace eShopLegacyWebForms.Services
             items.ForEach(i => i.CatalogType = catalogTypes.First(b => b.Id == i.CatalogTypeId));
 
             return items;
-            ;
+        }
+
+        public void Seed()
+        {
+            return;
         }
     }
 }

@@ -14,5 +14,6 @@ namespace eShopLegacyWebForms.Services
         void CreateCatalogItem(CatalogItem catalogItem);
         void UpdateCatalogItem(CatalogItem catalogItem);
         void RemoveCatalogItem(CatalogItem catalogItem);
+        void Seed();
     }
 }
