@@ -23,7 +23,7 @@ namespace eShopLegacyWebForms
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Diagnostics.Trace.TraceInformation("Page_Load");
+            //System.Diagnostics.Trace.TraceInformation("Page_Load");
             Seed();
             if (PaginationParamsAreSet())
             {
