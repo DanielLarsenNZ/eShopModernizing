@@ -1,4 +1,4 @@
-﻿<%@ master language="C#" autoeventwireup="true" codebehind="Site.master.cs" inherits="eShopLegacyWebForms.SiteMaster" %>
+﻿<%@ master language="C#" autoeventwireup="true" codebehind="Shop.Master.cs" inherits="eShopLegacyWebForms.ShopMaster" %>
 
 <!DOCTYPE html>
 
@@ -28,7 +28,7 @@
         appInsights.trackPageView();
     </script>
 </head>
-<body style="background-color: blanchedalmond">
+<body style="background-color: white">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -61,7 +61,10 @@
                             </a>
                         </td>
                         <td style="padding:5px">
-                            <a runat="server" href="~/Admin">Admin</a>
+                            <a runat="server" href="~/About">About</a>
+                        </td>
+                        <td style="padding:5px">
+                            <a runat="server" href="~/Contact">Contact</a>
                         </td>
                     </tr>
                 </table>

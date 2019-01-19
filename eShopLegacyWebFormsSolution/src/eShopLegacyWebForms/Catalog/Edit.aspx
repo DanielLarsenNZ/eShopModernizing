@@ -95,7 +95,7 @@
 
                 <div class="form-group">
                     <div class="col-md-12 text-right esh-button-actions">
-                        <a runat="server" href="~" class="btn esh-button esh-button-secondary">[ Cancel ]
+                        <a runat="server" href="~/Admin" class="btn esh-button esh-button-secondary">[ Cancel ]
                         </a>
                         <asp:Button CssClass="btn esh-button esh-button-primary" runat="server" Text="[ Save ]" OnClick="Save_Click" />
                     </div>

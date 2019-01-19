@@ -1,9 +1,14 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Shop.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs"
-    Inherits="eShopLegacyWebForms._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" 
+    Inherits="eShopLegacyWebForms._Admin" %>
 
 <asp:Content ID="CatalogList" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="esh-table">
+        <p class="esh-link-wrapper">
+            <a runat="server" href="<%$RouteUrl:RouteName=CreateProductRoute%>" class="btn esh-button esh-button-primary">
+                Create New
+            </a>
+        </p>
 
         <asp:ListView ID="productList" ItemPlaceholderID="itemPlaceHolder" runat="server" ItemType="eShopLegacyWebForms.Models.CatalogItem">
             <EmptyDataTemplate>
@@ -28,6 +33,14 @@
                             </th>
                             <th>Price
                             </th>
+                            <th>Picture name
+                            </th>
+                            <th>Stock
+                            </th>
+                            <th>Restock
+                            </th>
+                            <th>Max stock
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,15 +51,12 @@
             <ItemTemplate>
                 <tr>
                     <td>
-                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("ShopProductDetailsRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
-                            <image class="esh-thumbnail" src='/Pics/<%#:Item.PictureFileName%>' />
-                        </asp:HyperLink>
+                        <image class="esh-thumbnail" src='/Pics/<%#:Item.PictureFileName%>' />
+                        </a>
                     </td>
                     <td>
                         <p>
-                            <asp:HyperLink NavigateUrl='<%# GetRouteUrl("ShopProductDetailsRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
                             <%#:Item.Name%>
-                            </asp:HyperLink>
                         </p>
                     </td>
                     <td>
@@ -70,8 +80,36 @@
                         </p>
                     </td>
                     <td>
-                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("ShopProductDetailsRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
+                        <p>
+                            <%#:Item.PictureFileName%>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <%#:Item.AvailableStock%>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <%#:Item.RestockThreshold%>
+                        </p>
+                    </td>
+                    <td>
+                        <p>
+                            <%#:Item.MaxStockThreshold%>
+                        </p>
+                    </td>
+                    <td>
+                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("EditProductRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
+                            Edit
+                        </asp:HyperLink>
+                        |
+                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("ProductDetailsRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
                             Details
+                        </asp:HyperLink>
+                        |
+                        <asp:HyperLink NavigateUrl='<%# GetRouteUrl("DeleteProductRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
+                            Delete
                         </asp:HyperLink>
                     </td>
                 </tr>

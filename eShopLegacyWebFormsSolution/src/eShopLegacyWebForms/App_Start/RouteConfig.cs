@@ -40,6 +40,31 @@ namespace eShopLegacyWebForms
                 "Catalog/Delete/{id}",
                 "~/Catalog/Delete.aspx"
                 );
+            routes.MapPageRoute(
+                "AdminDefaultRoute",
+                "Admin",
+                "~/Admin.aspx"
+                );
+            routes.MapPageRoute(
+                "ShopProductDetailsRoute",
+                "Product/{id}",
+                "~/Product.aspx"
+                );
+            routes.MapPageRoute(
+                "ShopAboutRoute",
+                "About",
+                "~/About.aspx"
+                );
+            routes.MapPageRoute(
+                "ShopContactRoute",
+                "Contact",
+                "~/Contact.aspx"
+                );
+            routes.MapPageRoute(
+                "AdminByPageRoute",
+                "Admin/index/{index}/size/{size}",
+                "~/Admin.aspx"
+                );
         }
     }
 }

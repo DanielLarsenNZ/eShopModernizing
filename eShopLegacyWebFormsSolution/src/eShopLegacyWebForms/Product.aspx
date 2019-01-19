@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Details" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Details.aspx.cs" 
-    Inherits="eShopLegacyWebForms.Catalog.Details" %>
+﻿<%@ Page Title="Details" Language="C#" MasterPageFile="~/Shop.Master" AutoEventWireup="true" CodeBehind="Product.aspx.cs" 
+    Inherits="eShopLegacyWebForms.Product" %>
 
 <asp:Content ID="Details" ContentPlaceHolderID="MainContent" runat="server">
     <h2 class="esh-body-title">Details</h2>
@@ -49,35 +49,11 @@
                     <asp:Label runat="server" Text='<%#product.PictureFileName%>' />
                 </dd>
 
-                <dt>Stock
-                </dt>
-
-                <dd>
-                    <asp:Label runat="server" Text='<%#product.AvailableStock%>' />
-                </dd>
-
-                <dt>Restock
-                </dt>
-
-                <dd>
-                    <asp:Label runat="server" Text='<%#product.RestockThreshold%>' />
-                </dd>
-
-                <dt>Max stock
-                </dt>
-
-                <dd>
-                    <asp:Label runat="server" Text='<%#product.MaxStockThreshold%>' />
-                </dd>
-
             </dl>
         </div>
 
         <div class="form-actions no-color esh-link-list">
-            <a runat="server" href='<%# GetRouteUrl("EditProductRoute", new {id =product.Id}) %>' class="esh-link-item">Edit
-            </a>
-            |
-            <a runat="server" href="~/Admin" class="esh-link-item">Back to list
+            <a runat="server" href="~" class="esh-link-item">Back to list
             </a>
         </div>
 

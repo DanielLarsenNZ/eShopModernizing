@@ -12,7 +12,7 @@ using System.Web.Routing;
 
 namespace eShopLegacyWebForms
 {
-    public partial class _Default : Page
+    public partial class _Admin : Page
     {
         public const int DefaultPageIndex = 0;
         public const int DefaultPageSize = 10;
@@ -24,6 +24,7 @@ namespace eShopLegacyWebForms
         protected void Page_Load(object sender, EventArgs e)
         {
             //System.Diagnostics.Trace.TraceInformation("Page_Load");
+            Seed();
             if (PaginationParamsAreSet())
             {
                 var size = Convert.ToInt32(Page.RouteData.Values["size"]);
@@ -41,6 +42,14 @@ namespace eShopLegacyWebForms
 
         }
 
+        private void Seed()
+        {
+            if (Page.ClientQueryString.Contains("seed=true"))
+            {
+                CatalogService.Seed();
+            }
+        }
+
         private bool PaginationParamsAreSet()
         {
             return Page.RouteData.Values.Keys.Contains("size") && Page.RouteData.Values.Keys.Contains("index");
@@ -48,11 +57,11 @@ namespace eShopLegacyWebForms
 
         private void ConfigurePagination()
         {
-            PaginationNext.NavigateUrl = GetRouteUrl("ProductsByPageRoute", new { index = Model.ActualPage + 1, size = Model.ItemsPerPage });
+            PaginationNext.NavigateUrl = GetRouteUrl("AdminByPageRoute", new { index = Model.ActualPage + 1, size = Model.ItemsPerPage });
             var pagerNextExtraStyles = Model.ActualPage < Model.TotalPages - 1 ? "" : " esh-pager-item--hidden";
             PaginationNext.CssClass = PaginationNext.CssClass + pagerNextExtraStyles;
 
-            PaginationPrevious.NavigateUrl = GetRouteUrl("ProductsByPageRoute", new { index = Model.ActualPage - 1, size = Model.ItemsPerPage });
+            PaginationPrevious.NavigateUrl = GetRouteUrl("AdminByPageRoute", new { index = Model.ActualPage - 1, size = Model.ItemsPerPage });
             var pagerPreviousExtraStyles = Model.ActualPage > 0 ? "" : " esh-pager-item--hidden";
             PaginationPrevious.CssClass = PaginationPrevious.CssClass + pagerPreviousExtraStyles;
         }
