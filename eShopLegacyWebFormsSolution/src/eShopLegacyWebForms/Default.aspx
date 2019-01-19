@@ -40,7 +40,7 @@
                 <tr>
                     <td>
                         <asp:HyperLink NavigateUrl='<%# GetRouteUrl("ShopProductDetailsRoute", new {id =Item.Id}) %>' runat="server" CssClass="esh-table-link">
-                            <image class="esh-thumbnail" src='/Pics/<%#:Item.PictureFileName%>' />
+                            <image class="esh-thumbnail" src='/pics/<%#:Item.PictureFileName%>' />
                         </asp:HyperLink>
                     </td>
                     <td>
