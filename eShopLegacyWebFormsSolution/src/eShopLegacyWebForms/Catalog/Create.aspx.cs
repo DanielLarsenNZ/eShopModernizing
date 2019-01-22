@@ -43,7 +43,7 @@ namespace eShopLegacyWebForms.Catalog
 
                 CatalogService.CreateCatalogItem(catalogItem);
 
-                Response.Redirect("~");
+                Response.Redirect("~/Admin");
             }
         }
     }
