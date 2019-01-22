@@ -27,7 +27,7 @@ namespace eShopLegacyWebForms.Catalog
         {
             CatalogService.RemoveCatalogItem(productToDelete);
 
-            Response.Redirect("~");
+            Response.Redirect("~/Admin");
         }
     }
 }
