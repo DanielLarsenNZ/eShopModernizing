@@ -62,7 +62,7 @@ namespace eShopLegacyWebForms.Catalog
                 };
                 CatalogService.UpdateCatalogItem(catalogItem);
 
-                Response.Redirect("~");
+                Response.Redirect("~/Admin");
             }
         }
     }
