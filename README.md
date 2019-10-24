@@ -1,6 +1,10 @@
 
 # eShopModernizing - Modernizing ASP.NET Web apps (MVC and WebForms) and N-Tier apps (WCF + WinForms) with Windows Containers and Azure
 
+> 📢 The @DanielLarsenNZ fork has enhanced the **eShopLegacyWebForms** solution as a demonstration for the talk
+> [Scaling the Monolith](https://github.com/DanielLarsenNZ/talks/tree/master/scaling-the-monolith-2019). 
+> See the [Readme](./eShopLegacyWebFormsSolution/README.md) for details. 🏔
+
 This repo provides three sample hypothetical legacy eShop web apps (traditional ASP.NET WebForms and MVC in .NET Framework and an N-Tier app based on a WCF service and a client WinForms desktop app) and how you can modernize them (Lift and Shift scenario) with Windows Containers and Azure Cloud into the following deployment options:
 
 - Local build and deployment in dev PC with Visual Studio and Docker for Windows

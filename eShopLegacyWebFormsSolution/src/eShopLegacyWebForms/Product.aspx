@@ -54,9 +54,13 @@
         </div>
 
         <div class="form-actions no-color esh-link-list">
+            <asp:Button runat="server" Text="Buy Now" ID="btnBuy" OnClick="btnBuy_Click"/>
             <a runat="server" href="~" class="esh-link-item">Back to list
             </a>
+            <div id="divOrdered" runat="server" visible="false" style="background-color:lightgreen;color:white"><%#product.Name%> has been Ordered. 
+                <div id="divOrderNumber" runat="server" style="font-family:monospace;font-size:0.8em"></div></div>
         </div>
+
 
     </div>
 </asp:Content>

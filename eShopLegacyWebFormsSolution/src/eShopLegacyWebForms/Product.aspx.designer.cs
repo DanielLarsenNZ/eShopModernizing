@@ -7,9 +7,38 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eShopLegacyWebForms {
-    
-    
-    public partial class Product {
+namespace eShopLegacyWebForms
+{
+
+
+    public partial class Product
+    {
+
+        /// <summary>
+        /// btnBuy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuy;
+
+        /// <summary>
+        /// divOrdered control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOrdered;
+
+        /// <summary>
+        /// divOrderNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOrderNumber;
     }
 }
