@@ -2,11 +2,6 @@
 using eShopLegacyWebForms.Models;
 using eShopLegacyWebForms.Models.Infrastructure;
 using eShopLegacyWebForms.Services;
-using Microsoft.ApplicationInsights;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace eShopLegacyWebForms.Modules
 {
@@ -25,20 +20,12 @@ namespace eShopLegacyWebForms.Modules
                 builder.RegisterType<CatalogServiceMock>()
                     .As<ICatalogService>()
                     .SingleInstance();
-
-                builder.RegisterType<QueueServiceMock>()
-                    .As<IQueueService>()
-                    .SingleInstance();
             }
             else
             {
                 builder.RegisterType<CatalogService>()
                     .As<ICatalogService>()
                     .InstancePerLifetimeScope();
-
-                builder.RegisterType<QueueService>()
-                    .As<IQueueService>()
-                    .SingleInstance();
             }
 
             builder.RegisterType<CatalogDBContext>()
@@ -48,9 +35,6 @@ namespace eShopLegacyWebForms.Modules
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<CatalogItemHiLoGenerator>()
-                .SingleInstance();
-
-            builder.RegisterType<TelemetryClient>()
                 .SingleInstance();
         }
     }

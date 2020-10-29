@@ -1,5 +1,4 @@
 ﻿using eShopModernizedMVC.Models;
-using Microsoft.Azure;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -42,7 +41,6 @@ namespace eShopModernizedMVC.Services
             CloudBlobClient blobClient = _storageAccount.CreateCloudBlobClient();
             CloudBlobContainer container = blobClient.GetContainerReference("pics");
 
-            container = blobClient.GetContainerReference("pics");
             container.CreateIfNotExists();
 
             BlobContainerPermissions permissions = container.GetPermissions();

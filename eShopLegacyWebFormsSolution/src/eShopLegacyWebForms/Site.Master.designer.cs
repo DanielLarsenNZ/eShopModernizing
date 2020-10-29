@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace eShopLegacyWebForms {
-    
-    
-    public partial class SiteMaster {
-        
+namespace eShopLegacyWebForms
+{
+
+
+    public partial class SiteMaster
+    {
+
         /// <summary>
         /// MainContent control.
         /// </summary>

@@ -10,23 +10,17 @@ This repo provides three sample hypothetical legacy eShop web apps (traditional 
 - Local build and deployment in dev PC with Visual Studio and Docker for Windows
 - Azure Container Instances (ACI)
 - Regular Windows Server 2016 VM (Virtual Machine)
-- ACS-Kubernetes orchestrator cluster
-- Service Fabric orchestrators cluster
-- Azure App Service with Windows Containers support (In Private Preview, not documented here, yet)
-- Service Fabric Mesh (In Private Preview, not documented here, yet)
+- AKS Kubernetes orchestrator cluster
+- Azure Web App for Containers (Windows Containers)
 
 All those mentioned environments can be deployed into Azure cloud (as explained in the Wiki) but you can also deploy all those environments into on-premises servers or even in other public clouds.
 
 ## Related Guide/eBook
-You can download its related guidance with this free guide/eBook (2nd Edition updated in mid-2018):
+You can download its related guidance with this free guide/eBook (2nd Edition):
 
-![image](https://user-images.githubusercontent.com/1712635/39776014-6b4f26b0-52b4-11e8-87f8-b43bf48fca27.png)
+<img src="https://github.com/dotnet/docs/raw/master/docs/architecture/modernize-with-azure-containers/media/index/web-application-guide-cover-image.png" width="300">
 
-.PDF download (PC) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebook
-
-.MOBI download (Kindle) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebookmobi
-
-.EPUB download (Other eReaders) - 2nd Edition: https://aka.ms/liftandshiftwithcontainersebookepub
+.PDF download: https://aka.ms/liftandshiftwithcontainersebook
 
 The modernization with Windows Containers significantly improves the deployments for DevOps, without having to change the app's architecture or C# code.
 
@@ -59,16 +53,17 @@ The winforms application is a catalog management, and uses a WCF as a back-end. 
 ### DEPLOYMENT TO AZURE WINDOWS SERVER 2016 VM
 ![image](https://user-images.githubusercontent.com/1712635/30402804-d62632a2-9893-11e7-817a-f9f616cdf380.png)
 
-### DEPLOYMENT TO KUBERNETES CLUSTER IN AZURE CONTAINER SERVICE
-![image](https://user-images.githubusercontent.com/1712635/30443383-264dd546-9934-11e7-8c86-6d0c892927bb.png)
+### DEPLOYMENT TO KUBERNETES CLUSTER IN AKS (Azure Kubernetes Service)
+![image](https://user-images.githubusercontent.com/1899987/61177768-7526a100-a5aa-11e9-8279-bdfba19e1335.png)
 
-### DEPLOYMENT TO SERVICE FABRIC CLUSTER
-![image](https://user-images.githubusercontent.com/1712635/30446445-094e998a-993e-11e7-96d8-ed1dd9fef142.png)
+### DEPLOYMENT TO AZURE WEB APP FOR CONTAINERS
+![image](https://docs.microsoft.com/en-us/dotnet/architecture/modernize-with-azure-containers/media/image5-11.png)
 
+## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows"
 
-## Quick start: Running all apps together in your local Windows 10 PC with "Docker for Windows" and VS 2017
+You have more detailed procedures at the [Wiki](https://github.com/dotnet-architecture/eShopModernizing/wiki), but for the quickest way to get started and run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017 (or 2019)"** (to ensure you have right `msbuild` on `PATH`), go to the eShopModernizing root folder and run the `build.cmd` script.
 
-You have more detailed procedures at the [Wiki](https://github.com/dotnet-architecture/eShopModernizing/wiki), but for the quickest way to get started and run all samples together using Docker for Windows, open a **"Developer Command Prompt for VS 2017"** (to ensure you have right `msbuild` on `PATH`), go to the eShopModernizing root folder and run the `build.cmd` script. 
+**Note: The current version uses netcoreapp3.0. You will need to instll the preview SDK and set Visual Studio to 'Use previews of the .NET Core SDK (under Options - Projects and Solutions - .NET Core).**
 
 This script will:
 
@@ -84,7 +79,7 @@ You can check the just created Docker images by running `docker images` from the
 
 ![image](https://user-images.githubusercontent.com/1712635/38949583-a2c11ba2-42f7-11e8-9c10-b74f2a005186.png)
 
-Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once containers are started:
+Finally just run `docker-compose up` (in the root of the repo) to start all three projects and one SQL Server container. Once the containers are started:
 
 * MVC web app listens in: 
      - Port 5115 on the Docker Host (PC) network card IP
@@ -96,9 +91,9 @@ Finally just run `docker-compose up` (in the root of the repo) to start all thre
      - Port 5113 on the Docker Host (PC) network card IP
      - Port 80 on the internal container's IP
 
->**Note** You should be able to use `http://localhost:<port>` to access the desired application but **due to a current limitation of Windows Containers this won't probably work (See belo the section "The localhost loopback limitation in Windows Containers Docker hosts")**. 
+>**Note** You should be able to use `http://localhost:<port>` to access the desired application. 
 
-In order to test the apps/containers from within the Docker host itself (the dev Windows PC) yu need to use the internal IP (container's IP) to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
+In order to test the apps/containers from within the Docker host itself (the dev Windows PC) you need to use the internal IP (container's IP) to access the application. To find the internal IP, just type  `docker ps` to find the container ids:
 
 ![docker ps output](./assets/docker-ps.png)
 
@@ -117,8 +112,6 @@ Although that [limitation has been removed beginning with Build 17025](https://b
 ## Review the Wiki for detailed instructions on how to set it up and deploy to multiple environments
 
 Wiki: https://github.com/dotnet-architecture/eShopModernizing/wiki
-
-
 
 ### Choose in-memory mock-data or real database connection to a SQL Server database
 

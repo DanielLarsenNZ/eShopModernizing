@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using eShopModernizedWebForms.Middleware;
 using Microsoft.Owin;
 using Owin;
 

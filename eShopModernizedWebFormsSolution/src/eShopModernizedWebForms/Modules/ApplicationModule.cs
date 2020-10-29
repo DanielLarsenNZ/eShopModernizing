@@ -2,10 +2,6 @@
 using eShopModernizedWebForms.Models;
 using eShopModernizedWebForms.Models.Infrastructure;
 using eShopModernizedWebForms.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace eShopModernizedWebForms.Modules
 {
@@ -13,12 +9,15 @@ namespace eShopModernizedWebForms.Modules
     {
         private bool useMockData;
         private bool useAzureStorage;
+        private bool useManagedIdentity;
 
-        public ApplicationModule(bool useMockData, bool useAzureStorage)
+        public ApplicationModule(bool useMockData, bool useAzureStorage, bool useManagedIdentity)
         {
             this.useMockData = useMockData;
             this.useAzureStorage = useAzureStorage;
+            this.useManagedIdentity = useManagedIdentity;
         }
+
         protected override void Load(ContainerBuilder builder)
         {
             if (this.useMockData)
@@ -55,6 +54,19 @@ namespace eShopModernizedWebForms.Modules
 
             builder.RegisterType<CatalogItemHiLoGenerator>()
                 .SingleInstance();
+
+            if (this.useManagedIdentity)
+            {
+                builder.RegisterType<ManagedIdentitySqlConnectionFactory>()
+                    .As<ISqlConnectionFactory>()
+                    .SingleInstance();
+            }
+            else
+            {
+                builder.RegisterType<AppSettingsSqlConnectionFactory>()
+                    .As<ISqlConnectionFactory>()
+                    .SingleInstance();
+            }
         }
     }
 }
