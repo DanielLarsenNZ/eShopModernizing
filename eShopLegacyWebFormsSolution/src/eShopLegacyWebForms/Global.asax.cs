@@ -74,6 +74,10 @@ namespace eShopLegacyWebForms
             LogicalThreadContext.Properties["requestinfo"] = new WebRequestInfo();
 
             _log.Debug("Application_BeginRequest");
+
+            // app-mod-2020: Default cache-control is 'private' which Front Door will honour by not
+            //  caching (no matter what). This line changes it to 'public' (ok for proxies to cache)
+            Context.Response.Cache.SetCacheability(HttpCacheability.Public);
         }
     }
 
