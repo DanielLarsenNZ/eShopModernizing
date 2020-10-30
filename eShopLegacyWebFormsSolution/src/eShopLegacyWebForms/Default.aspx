@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Shop.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs"
     Inherits="eShopLegacyWebForms._Default" %>
-<%--<%@ OutputCache VaryByParam="index;size" Duration="30" Location="ServerAndClient" %>--%>
+<%@ OutputCache VaryByParam="index;size" Duration="30" Location="Downstream" %> 
 
 <asp:Content ID="CatalogList" ContentPlaceHolderID="MainContent" runat="server">
 

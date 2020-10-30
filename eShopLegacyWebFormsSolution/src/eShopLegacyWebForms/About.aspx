@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Shop.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="eShopLegacyWebForms.About" %>
-<%@ OutputCache VaryByParam="*" Duration="60" Location="ServerAndClient" %>
+<%@ OutputCache VaryByParam="*" Duration="60" Location="Downstream" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
