@@ -1,5 +1,7 @@
 # Scaling the Monolith demo
 
+> ⚠ To seed the DB navigate to `/Admin?seed=true`
+
 ## Enhancements
 
 1. OutputCache

@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.Entity;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 using System.Web.Hosting;
 
 namespace eShopLegacyWebForms.Models.Infrastructure
@@ -34,20 +32,20 @@ namespace eShopLegacyWebForms.Models.Infrastructure
 
         protected override void Seed(CatalogDBContext context)
         {
-            Trace.TraceInformation("ExecuteScript(CatalogItemHiLoSequenceScript)");
+            //Trace.TraceInformation("ExecuteScript(CatalogItemHiLoSequenceScript)");
             ExecuteScript(context, CatalogItemHiLoSequenceScript);
-            Trace.TraceInformation("ExecuteScript(CatalogBrandHiLoSequenceScript)");
+            //Trace.TraceInformation("ExecuteScript(CatalogBrandHiLoSequenceScript)");
             ExecuteScript(context, CatalogBrandHiLoSequenceScript);
-            Trace.TraceInformation("ExecuteScript(CatalogTypeHiLoSequenceScript)");
+            //Trace.TraceInformation("ExecuteScript(CatalogTypeHiLoSequenceScript)");
             ExecuteScript(context, CatalogTypeHiLoSequenceScript);
 
-            Trace.TraceInformation("AddCatalogTypes");
+            //Trace.TraceInformation("AddCatalogTypes");
             AddCatalogTypes(context);
-            Trace.TraceInformation("AddCatalogBrands");
+            //Trace.TraceInformation("AddCatalogBrands");
             AddCatalogBrands(context);
-            Trace.TraceInformation("AddCatalogItems");
+            //Trace.TraceInformation("AddCatalogItems");
             AddCatalogItems(context);
-            Trace.TraceInformation("AddCatalogItemPictures");
+            //Trace.TraceInformation("AddCatalogItemPictures");
             AddCatalogItemPictures();
         }
 
